@@ -52,7 +52,7 @@
                   { value: 'phenotype_hpo_class', name: 'Phenotype HPO class' },
                   { value: 'phenotype_hpo_id', name: 'Phenotype HPO ID' },
                   { value: 'publication_year', name: 'Publication Year' },
-                  { value: 'pubmed_id', name: 'Pubmed ID' },
+                  { value: 'pubmed_id', name: 'PubMed ID' },
                   { value: 'pmc_id', name: 'Pubmed Central ID (PMCID)'},
                   { value: 'rating', name: 'Rating' },
                   { value: 'status', name: 'Status' },

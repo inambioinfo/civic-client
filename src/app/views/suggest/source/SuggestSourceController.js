@@ -37,18 +37,18 @@
 
     vm.suggestionFields =[
       {
-        key: 'pubmed_id',
+        key: 'citation_id',
         type: 'publication',
         model: vm.newSuggestion.suggestion,
         templateOptions: {
-          label: 'Pubmed ID',
-          value: 'vm.newSuggestion.pubmed_id',
+          label: 'Citation ID',
+          value: 'vm.newSuggestion.citation_id',
           minLength: 1,
           required: true,
           data: {
             description: '--'
           },
-          helpText: help['Pubmed ID']
+          helpText: help['PubMed or ASCO Abstract ID']
         },
         modelOptions: {
           updateOn: 'default blur',
@@ -202,7 +202,7 @@
           console.log('dup warning controller loaded.');
           var vm = $scope.vm = {};
           vm.duplicates = [];
-          vm.pubmedName = '';
+          vm.citationName = '';
 
           function searchForDups(values) {
             if(_.every(values, function(val) { return _.isString(val) && val.length > 0; })) {
@@ -210,7 +210,7 @@
                 'operator': 'AND',
                 'queries': [
                   {
-                    'field': 'pubmed_id',
+                    'field': 'citation_id',
                     'condition': {'name': 'is', 'parameters': [values[0]]
                     }
                   },
@@ -237,12 +237,12 @@
             }
           }
 
-          $scope.pubmedField = _.find($scope.fields, { key: 'pubmed_id' });
+          $scope.publicationField = _.find($scope.fields, { key: 'citation_id' });
 
           // {"operator":"AND","queries":[{"field":"pubmed_id","condition":{"name":"is","parameters":["25589621"]}},{"field":"gene_name","condition":{"name":"contains","parameters":["BRAF"]}},{"field":"variant_name","condition":{"name":"contains","parameters":["V600E"]}},{"field":"disease_doid","condition":{"name":"is","parameters":["9256"]}}]}
 
           $scope.$watchGroup([
-            'model.suggestion.pubmed_id',
+            'model.suggestion.citation_id',
             'model.suggestion.gene.name',
             'model.suggestion.variant.name',
             'model.suggestion.disease.doid'
@@ -268,7 +268,7 @@
     vm.submit = function(req) {
       vm.error = {};
       var reqObj = {
-        pubmed_id: req.suggestion.pubmed_id,
+        citation_id: req.suggestion.citation_id,
         comment: req.comment
       };
       if(!_.isUndefined(req.suggestion.gene) && _.isObject(req.suggestion.gene)) {reqObj.gene_name = req.suggestion.gene.name;}

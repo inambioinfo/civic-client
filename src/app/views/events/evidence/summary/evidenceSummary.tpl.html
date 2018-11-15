@@ -114,13 +114,13 @@
           </td>
         </tr>
         <tr>
-          <td class="name">Pubmed ID:</td>
+          <td class="name">Citation ID:</td>
           <td class="value">
-            <a ng-href="http://www.ncbi.nlm.nih.gov/pubmed/{{evidence.source.pubmed_id}}"
+            <a ng-href="{{evidence.source.source_url}}"
               class="btn btn-xs button-new-window"
               target="_blank">
               <span class="glyphicon glyphicon-new-window"></span>
-              <span ng-bind="evidence.source.pubmed_id"></span>
+              <span ng-bind="evidence.source.citation_id"></span>
             </a>
           </td>
         </tr>

@@ -43,11 +43,11 @@
     var query = {
       'operator': 'AND',
       'queries': [
-        {'field': 'pubmed_id',
+        {'field': 'citation_id',
           'condition': {
             'name': 'is',
             'parameters': [
-              source.pubmed_id
+              source.citation_id
             ]
           }
         }],

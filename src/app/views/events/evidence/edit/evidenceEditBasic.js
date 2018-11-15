@@ -58,7 +58,7 @@
     vm.evidenceRevisions = EvidenceRevisions;
     vm.evidenceHistory = EvidenceHistory;
     vm.evidenceEdit = angular.copy(vm.evidence);
-    vm.evidenceEdit.pubmed_id = vm.evidence.source.pubmed_id;
+    vm.evidenceEdit.citation_id = vm.evidence.source.citation_id;
     vm.evidenceEdit.comment = { title: 'Evidence EID' + vm.evidence.id + ' Revision Description', text:'' };
     vm.evidenceEdit.drugs = _.filter(_.map(vm.evidence.drugs, 'name'), function(name){ return name !== 'N/A'; });
     vm.evidenceEdit.phenotypes = _.map(vm.evidenceEdit.phenotypes, function(phenotype) { return phenotype.hpo_class; });
@@ -108,17 +108,17 @@
         }
       },
       {
-        key: 'pubmed_id',
+        key: 'citation_id',
         type: 'publication',
         templateOptions: {
-          label: 'Pubmed ID',
-          value: 'vm.evidenceEdit.pubmed_id',
+          label: 'Citation ID',
+          value: 'vm.evidenceEdit.citation_id',
           minLength: 1,
           required: true,
           data: {
             description: '--'
           },
-          helpText: help['Pubmed ID']
+          helpText: help['Citation ID']
         },
         modelOptions: {
           updateOn: 'default blur',

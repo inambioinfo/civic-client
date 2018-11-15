@@ -60,8 +60,8 @@
       noUnselect: true,
       columnDefs: [
         {
-          name: 'pubmed_id',
-          displayName: 'Pubmed ID',
+          name: 'citation_id',
+          displayName: 'Citation ID',
           enableFiltering: true,
           allowCellFocus: false,
           type: 'string',

@@ -21,8 +21,8 @@
   // @ngInject
   function PublicationController($scope, Publications) {
     console.log('PublicationController called.');
-    $scope.validatePublication = function(pubmedId) {
-      return Publications.verify(pubmedId);
+    $scope.validatePublication = function(citationId) {
+      return Publications.verify(citationId);
     };
   }
 

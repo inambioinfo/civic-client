@@ -138,11 +138,11 @@
           cellTemplate: '<div class="ui-grid-cell-contents"><user-block user="row.entity[col.field]"</div>'
         },
         {
-          name: 'pubmed_id',
-          displayName: 'Pubmed ID',
+          name: 'citation_id',
+          displayName: 'Citation ID',
           width: '10%',
           visible: true,
-          cellTemplate: '<div class="ui-grid-cell-contents"><a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ row.entity[col.field] }}" target="_blank">{{ row.entity[col.field] }}</a></div>',
+          cellTemplate: '<div class="ui-grid-cell-contents"><a href="{{ row.entity.source_url }}" target="_blank">{{ row.entity[col.field] }}</a></div>',
           //visible: mode === 'full',
           enableFiltering: true,
           allowCellFocus: false,
@@ -278,8 +278,8 @@
           if(_.has(source, 'disease') && source.disease !== null) {
             urlElements.push('diseaseName=' + source.disease);
           }
-          if(_.has(source, 'pubmed_id') && source.pubmed_id !== null) {
-            urlElements.push('pubmedId=' + source.pubmed_id);
+          if(_.has(source, 'citation_id') && source.citation_id !== null) {
+            urlElements.push('citationId=' + source.citation_id);
           }
 
           urlElements.push('sourceSuggestionId=' + source.id);

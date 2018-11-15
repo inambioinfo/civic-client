@@ -73,7 +73,7 @@
     vm.newEvidence = {
       gene: '',
       variant: '',
-      pubmed_id: '',
+      citation_id: '',
       description: '',
       disease: {
         name: ''
@@ -206,17 +206,17 @@
       },
 
       {
-        key: 'pubmed_id',
+        key: 'citation_id',
         type: 'publication',
         templateOptions: {
-          label: 'Pubmed ID',
-          value: 'vm.newEvidence.pubmed_id',
+          label: 'Citation ID',
+          value: 'vm.newEvidence.citation_id',
           minLength: 1,
           required: true,
           data: {
             description: '--'
           },
-          helpText: help['Pubmed ID']
+          helpText: help['PubMed or ASCO Abstract ID']
         },
         modelOptions: {
           updateOn: 'default blur',
@@ -227,8 +227,8 @@
           }
         },
         controller: /* @ngInject */ function($scope, $stateParams) {
-          if($stateParams.pubmedId) {
-            $scope.model.pubmed_id = $stateParams.pubmedId;
+          if($stateParams.citationId) {
+            $scope.model.citation_id = $stateParams.citationId;
           }
         },
         validators: {
@@ -265,7 +265,7 @@
         controller: /* @ngInject */ function($scope, Search) {
           var vm = $scope.vm = {};
           vm.duplicates = [];
-          vm.pubmedName = '';
+          vm.citationName = '';
 
           function searchForDups(values) {
             if(_.every(values, function(val) { return _.isString(val) && val.length > 0; })) {
@@ -282,7 +282,7 @@
                       'condition': {'name': 'contains', 'parameters': [values[1]]}
                     },
                     {
-                      'field': 'pubmed_id',
+                      'field': 'citation_id',
                       'condition': {'name': 'is', 'parameters': [values[2]]
                       }
                     }
@@ -296,12 +296,12 @@
             }
           }
 
-          $scope.pubmedField = _.find($scope.fields, { key: 'pubmed_id' });
+          $scope.citationField = _.find($scope.fields, { key: 'citation_id' });
 
           $scope.$watchGroup([
             'model.gene.name',
             'model.variant.name',
-            'model.pubmed_id'
+            'model.citation_id'
           ], searchForDups);
         }
       },

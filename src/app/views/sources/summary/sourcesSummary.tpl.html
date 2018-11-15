@@ -38,13 +38,13 @@
                 <td class="value" ng-bind="vm.source.citation"></td>
               </tr>
               <tr>
-                <td class="key">Pubmed ID:</td>
+                <td class="key">Citation ID:</td>
                 <td class="value">
-                  <a ng-href="http://www.ncbi.nlm.nih.gov/pubmed/{{vm.source.pubmed_id}}"
+                  <a ng-href="{{vm.source.source_url}}"
                     class="btn btn-xs button-new-window"
                     target="_blank">
                     <span class="glyphicon glyphicon-new-window"></span>
-                    <span ng-bind="vm.source.pubmed_id"></span>
+                    <span ng-bind="vm.source.citation_id"></span>
                   </a>
                 </td>
               </tr>

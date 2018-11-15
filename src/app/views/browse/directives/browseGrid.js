@@ -753,8 +753,8 @@
       ],
       'sources': [
         {
-          name: 'pubmed_id',
-          displayName: 'Pubmed ID',
+          name: 'citation_id',
+          displayName: 'Citation ID',
           enableFiltering: true,
           allowCellFocus: false,
           cellTemplate: 'app/views/events/common/genericHighlightCell.tpl.html',

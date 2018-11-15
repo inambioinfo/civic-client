@@ -49,7 +49,7 @@
     vm.variantEdit = angular.copy(_.omit(vm.variant, ['evidence_items', 'lifecycle_actions']));
 
     vm.variantEdit.comment = { title: 'VARIANT ' + vm.variant.name + ' Suggested Revision', text:'' };
-    vm.variantEdit.sources = _.map(vm.variant.sources, 'pubmed_id');
+    vm.variantEdit.sources = _.map(vm.variant.sources, 'citation_id');
     vm.variantEdit.noClinVar = false;
 
     vm.myVariantInfo = variantModel.data.myVariantInfo;
