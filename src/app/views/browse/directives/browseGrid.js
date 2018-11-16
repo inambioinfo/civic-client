@@ -777,6 +777,18 @@
           }
         },
         {
+          name: 'asco_abstract_id',
+          displayName: 'ASCO Abstr ID',
+          enableFiltering: true,
+          allowCellFocus: false,
+          type: 'string',
+          width: '10%',
+          cellTemplate: 'app/views/browse/directives/browseGridTooltipCell.tpl.html',
+          filter: {
+            condition: uiGridConstants.filter.CONTAINS
+          }
+        },
+        {
           name: 'publication_year',
           displayName: 'Year',
           type: 'string',

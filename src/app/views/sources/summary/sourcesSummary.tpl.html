@@ -11,12 +11,13 @@
   <div class="row">
     <div class="col-xs-12">
       <h3 ng-bind="vm.source.name" class="source-title">Full Source Title</h3>
-      <p><strong>Authors:</strong> <span ng-bind="vm.source.author_list_string">Authors List</span></p>
+      <p ng-if="vm.source.source_type == 'pubmed'"><strong>Authors:</strong> <span ng-bind="vm.source.author_list_string">Authors List</span></p>
+      <p ng-if="vm.source.source_type == 'asco'"><strong>Presenter:</strong> <span ng-bind="vm.source.asco_presenter">Authors List</span></p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-7 col-lg-6">
-      <p><strong>Abstract:</strong> <span ng-bind="vm.source.abstract">Abstract</span></p>
+      <p ng-if="vm.source.source_type == 'pubmed'"><strong>Abstract:</strong> <span ng-bind="vm.source.abstract">Abstract</span></p>
     </div>
     <div class="col-xs-12 col-md-5 col-lg-6">
       <div class="row">

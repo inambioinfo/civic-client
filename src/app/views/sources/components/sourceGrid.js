@@ -183,14 +183,18 @@
           source.publication_date_string = pubDate.join('-');
 
           // format author list
-          source.author_list_string = _(source.author_list)
-            .sortBy('position')
-            .map(function(author) {
-              return [author.fore_name, author.last_name].join(' ');
-            })
-            .value()
-            .join(', ');
-          return source;
+          if(source.source_type == 'pubmed') {
+              source.author_list_string = _(source.author_list)
+                .sortBy('position')
+                .map(function(author) {
+                  return [author.fore_name, author.last_name].join(' ');
+                })
+                .value()
+                .join(', ');
+              return source;
+          else if(source.source_type == 'asco') {
+              return source.asco_presenter;
+          }
         });
       }
     };
